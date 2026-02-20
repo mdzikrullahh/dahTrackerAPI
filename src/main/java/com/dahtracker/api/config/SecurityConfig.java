@@ -56,9 +56,10 @@ public class SecurityConfig {
 
         configuration.setAllowedOrigins(Arrays.asList(
                 "http://localhost:5173",
-                "http://localhost:3000"
-        //production URL 
-        //
+                "http://localhost:3000",
+                "https://dahtracker.com",
+                "https://www.dahtracker.com",
+                "https://dah-tracker.vercel.app"
         ));
 
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
