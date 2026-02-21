@@ -13,4 +13,7 @@ public interface UserService {
     void deleteUser(Long id);
     void changePassword(User user, String newPassword);
     boolean checkPassword(User user, String currentPassword);
+
+    // 22-2-2025: change login signup feature - Find user by reset token
+    Optional<User> findByResetToken(String resetToken);
 }

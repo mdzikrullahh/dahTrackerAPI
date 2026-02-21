@@ -38,6 +38,24 @@ public class User {
     @Column(nullable = false)
     private Boolean enabled = false;
 
+    // 22-2-2025: change login signup feature - Email verification fields
+    @Column(nullable = false)
+    private Boolean verified = false;
+
+    private String verificationPin;
+
+    private LocalDateTime pinExpiry;
+
+    // 22-2-2025: change login signup feature - Password reset fields
+    private String resetToken;
+
+    private LocalDateTime resetTokenExpiry;
+
+    // 22-2-2025: change login signup feature - OAuth2 fields (for Google login)
+    private String provider;
+
+    private String providerId;
+
     @CreationTimestamp
     private LocalDateTime createdAt;
 

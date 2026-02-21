@@ -5,11 +5,13 @@ import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
-@Data
-public class ChangePasswordRequest {
+// 22-2-2025: change login signup feature - DTO for password reset
 
-    @NotBlank(message = "Current password is required")
-    private String currentPassword;
+@Data
+public class ResetPasswordRequest {
+
+    @NotBlank(message = "Token is required")
+    private String token;
 
     @NotBlank(message = "New password is required")
     @Size(min = 6, message = "Password must be at least 6 characters")

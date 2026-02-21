@@ -56,4 +56,16 @@ public class UserServiceImpl implements UserService {
     public boolean checkPassword(User user, String currentPassword) {
         return passwordEncoder.matches(currentPassword, user.getPassword());
     }
+
+    // 22-2-2025: change login signup feature - Find user by reset token
+    // Since tokens are BCrypt encoded, we need to manually compare
+    @Override
+    public Optional<User> findByResetToken(String rawResetToken) {
+        // Find all users with non-null reset tokens and compare
+        return userRepository.findAll().stream()
+                .filter(user -> user.getResetToken() != null)
+                .filter(user -> passwordEncoder.matches(rawResetToken, user.getResetToken()))
+                .filter(user -> user.getResetTokenExpiry() != null && user.getResetTokenExpiry().isAfter(java.time.LocalDateTime.now()))
+                .findFirst();
+    }
 }
