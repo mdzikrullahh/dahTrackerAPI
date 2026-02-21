@@ -13,6 +13,7 @@ public class CardResponse {
     private String type;
     private Boolean defaultCard;
     private String color;
+    private String holder;
     private Integer seq;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

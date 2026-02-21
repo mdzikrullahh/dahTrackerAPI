@@ -68,6 +68,7 @@ public class CardController {
         card.setType(request.getType());
         card.setDefaultCard(request.getDefaultCard() != null ? request.getDefaultCard() : false);
         card.setColor(request.getColor());
+        card.setHolder(request.getHolder());
         card.setSeq(request.getSeq());
 
         Card savedCard = cardService.createCard(card);
@@ -95,6 +96,7 @@ public class CardController {
         if (request.getType() != null) card.setType(request.getType());
         if (request.getDefaultCard() != null) card.setDefaultCard(request.getDefaultCard());
         if (request.getColor() != null) card.setColor(request.getColor());
+        if (request.getHolder() != null) card.setHolder(request.getHolder());
         if (request.getSeq() != null) card.setSeq(request.getSeq());
 
         Card updatedCard = cardService.updateCard(card);
@@ -129,6 +131,7 @@ public class CardController {
                 card.getType().name(),
                 card.getDefaultCard(),
                 card.getColor(),
+                card.getHolder(),
                 card.getSeq(),
                 card.getCreatedAt(),
                 card.getUpdatedAt()

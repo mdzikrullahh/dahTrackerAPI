@@ -36,6 +36,8 @@ public class Card {
 
     private String color;
 
+    private String holder;
+
     private Integer seq;
 
     @CreationTimestamp
