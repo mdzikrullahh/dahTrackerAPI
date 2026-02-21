@@ -31,4 +31,6 @@ public interface ExpenseRepository extends JpaRepository<Expense, Long> {
 
     @Query("SELECT SUM(e.amount) FROM Expense e WHERE e.user.id = :userId AND MONTH(e.expenseDate) = :month AND YEAR(e.expenseDate) = :year")
     BigDecimal getTotalByMonth(@Param("userId") Long userId, @Param("month") Integer month, @Param("year") Integer year);
+
+    void deleteByCardId(Long cardId);
 }
