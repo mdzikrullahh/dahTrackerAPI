@@ -13,6 +13,7 @@ public class ExpenseResponse {
     private Long id;
     private Long cardId;
     private String cardName;
+    private String cardType;
     private Long categoryId;
     private String categoryName;
     private BigDecimal amount;

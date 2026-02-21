@@ -181,7 +181,7 @@ public class AuthController {
         // Always return success to prevent email enumeration
         if (user == null) {
             return ResponseEntity.ok(new MessageResponse(
-                    "If an account exists with this email, a password reset link has been sent."));
+                    "If that email is registered, you'll receive a password reset link shortly."));
         }
 
         // Generate reset token
@@ -198,7 +198,7 @@ public class AuthController {
         }
 
         return ResponseEntity.ok(new MessageResponse(
-                "If an account exists with this email, a password reset link has been sent."));
+                "If that email is registered, you'll receive a password reset link shortly."));
     }
 
     // 22-2-2025: change login signup feature - Reset password with token

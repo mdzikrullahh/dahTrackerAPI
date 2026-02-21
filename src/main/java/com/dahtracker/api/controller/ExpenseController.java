@@ -265,6 +265,7 @@ public class ExpenseController {
                 expense.getId(),
                 expense.getCard() != null ? expense.getCard().getId() : null,
                 expense.getCard() != null ? expense.getCard().getName() : null,
+                expense.getCard() != null ? expense.getCard().getType().name() : null,
                 expense.getCategory().getId(),
                 expense.getCategory().getName(),
                 expense.getAmount(),
