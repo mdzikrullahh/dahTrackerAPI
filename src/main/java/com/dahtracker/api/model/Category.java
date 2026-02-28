@@ -31,6 +31,10 @@ public class Category {
 
     private String icon;
 
+    private Integer activeMonth;
+
+    private Integer activeYear;
+
     @CreationTimestamp
     private LocalDateTime createdAt;
 

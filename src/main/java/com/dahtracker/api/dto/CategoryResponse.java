@@ -12,6 +12,8 @@ public class CategoryResponse {
     private String name;
     private String color;
     private String icon;
+    private Integer activeMonth;
+    private Integer activeYear;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

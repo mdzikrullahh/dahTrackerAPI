@@ -67,6 +67,8 @@ public class CategoryController {
         category.setName(request.getName());
         category.setColor(request.getColor());
         category.setIcon(request.getIcon());
+        category.setActiveMonth(request.getActiveMonth());
+        category.setActiveYear(request.getActiveYear());
 
         Category savedCategory = categoryService.createCategory(category);
 
@@ -92,6 +94,8 @@ public class CategoryController {
         if (request.getName() != null) category.setName(request.getName());
         if (request.getColor() != null) category.setColor(request.getColor());
         if (request.getIcon() != null) category.setIcon(request.getIcon());
+        if (request.getActiveMonth() != null) category.setActiveMonth(request.getActiveMonth());
+        if (request.getActiveYear() != null) category.setActiveYear(request.getActiveYear());
 
         Category updatedCategory = categoryService.updateCategory(category);
 
@@ -124,6 +128,8 @@ public class CategoryController {
                 category.getName(),
                 category.getColor(),
                 category.getIcon(),
+                category.getActiveMonth(),
+                category.getActiveYear(),
                 category.getCreatedAt(),
                 category.getUpdatedAt()
         );

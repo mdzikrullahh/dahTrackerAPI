@@ -9,6 +9,7 @@ public class CardRequest {
     private Card.CardType type;
     private Boolean defaultCard;
     private String color;
+    private String textColor;
     private String holder;
     private Integer seq;
 }

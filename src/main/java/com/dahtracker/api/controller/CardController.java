@@ -68,6 +68,7 @@ public class CardController {
         card.setType(request.getType());
         card.setDefaultCard(request.getDefaultCard() != null ? request.getDefaultCard() : false);
         card.setColor(request.getColor());
+        card.setTextColor(request.getTextColor());
         card.setHolder(request.getHolder());
         card.setSeq(request.getSeq());
 
@@ -96,6 +97,7 @@ public class CardController {
         if (request.getType() != null) card.setType(request.getType());
         if (request.getDefaultCard() != null) card.setDefaultCard(request.getDefaultCard());
         if (request.getColor() != null) card.setColor(request.getColor());
+        if (request.getTextColor() != null) card.setTextColor(request.getTextColor());
         if (request.getHolder() != null) card.setHolder(request.getHolder());
         if (request.getSeq() != null) card.setSeq(request.getSeq());
 
@@ -131,6 +133,7 @@ public class CardController {
                 card.getType().name(),
                 card.getDefaultCard(),
                 card.getColor(),
+                card.getTextColor(),
                 card.getHolder(),
                 card.getSeq(),
                 card.getCreatedAt(),
