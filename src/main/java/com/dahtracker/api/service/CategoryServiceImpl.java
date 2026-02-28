@@ -4,6 +4,7 @@ import com.dahtracker.api.model.Category;
 import com.dahtracker.api.model.Budget;
 import com.dahtracker.api.repository.CategoryRepository;
 import com.dahtracker.api.repository.BudgetRepository;
+import com.dahtracker.api.repository.ExpenseRepository;
 import com.dahtracker.api.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     private final CategoryRepository categoryRepository;
     private final BudgetRepository budgetRepository;
+    private final ExpenseRepository expenseRepository;
 
     @Override
     public Category createCategory(Category category) {
@@ -42,9 +44,12 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     @Transactional
     public void deleteCategory(Long id) {
-        // First, delete all budgets associated with this category
+        // 28-02-2026: fix issue unable to delete category due to constraint table
+        // 1) delete all expenses associated with this category
+        expenseRepository.deleteByCategoryId(id);
+        // 2) delete all budgets associated with this category
         budgetRepository.deleteByCategoryId(id);
-        // Then delete the category
+        // 3) delete the category
         categoryRepository.deleteById(id);
     }
 }
